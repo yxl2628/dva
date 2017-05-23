@@ -1,0 +1,25 @@
+{
+  "entry": "src/*.js",
+  "publicPath":"/",
+  "outputPath": "./dist",
+  "extraBabelPlugins": [
+    ["import", { "libraryName": "antd", "style": "css" }]
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime"
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime"
+      ]
+    }
+  },
+  "theme": {
+    "@font-size-base": "16px",
+    "@line-height-base": "1.2"
+  }
+}
