@@ -1,0 +1,40 @@
+.header{
+  position: relative;
+  display: inline-flex;
+}
+.logo{
+  color:#ffffff;
+  font-size: 20px;
+  line-height: 64px;
+  height: 64px;
+  width: 180px;
+  background: url('../../assets/logo.png') no-repeat left center;
+  background-size:40px 40px;
+  padding-left: 50px;
+}
+.headerMenu{
+  line-height: 64px;
+  height: 64px;
+  font-size: 13px;
+}
+.subMenu{
+  border: 0;
+}
+.subMenu:global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected){
+  background-color: transparent !important;
+}
+.subMenu:global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item:hover){
+  background-color: #ecf6fd;
+}
+.userInfo{
+  position: absolute;
+  right: 50px;
+  line-height: 64px;
+  height: 64px;
+}
+.dropLink,.dropLink:hover,.dropLink:link,.dropLink:focus,.dropLink:active{
+  color: #61dafb;
+}
+.dropMenu{
+  width: 100px;
+}
