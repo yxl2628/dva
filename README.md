@@ -35,7 +35,7 @@ dva的示例代码，包含国际化解决方案、动态路由加载、Mock数�
     })
     module.exports = mock
     ```
-    
+    
 - public
   
     公共文件夹，这个文件夹下的所有文件，在build的时候，会直接copy过去，所以一般只用来放index.html和网站icon，当然，国际化的话，所有国际化index.html的入口都在这里，如index-en.html、index-fr.html等。
