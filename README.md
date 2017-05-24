@@ -7,6 +7,7 @@ dva的示例代码，包含国际化解决方案、动态路由加载、Mock数�
 - mock
   
     所有mock数据文件存放的地方，建议按照模块来划分文件，比如登录login.js、用户user.js，语法规则如：
+    
     ```javascript
     export default {
       // 支持值为 Object 和 Array
