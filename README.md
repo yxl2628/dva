@@ -8,7 +8,7 @@ dva的示例代码，包含国际化解决方案、动态路由加载、Mock数�
   
     所有mock数据文件存放的地方，建议按照模块来划分文件，比如登录login.js、用户user.js，语法规则如：
     
-    ```javascript
+    
     export default {
       // 支持值为 Object 和 Array
       'GET /api/users': { users: [1,2] },
@@ -25,17 +25,16 @@ dva的示例代码，包含国际化解决方案、动态路由加载、Mock数�
       // Forward 到另一个服务器，并指定子路径
       'GET /someDir/(.*)': 'https://g.alicdn.com/tb-page/taobao-home',
     };
-    ```
     
     值得说明的是，dva本身是要求在.roadhogrc.mock.js中实现mock的，但是考虑到如果所有数据都在同一个文件中书写，不利于维护，参考了大神的写法，在.roadhogrc.mock.js中，写的是动态加载mock这个文件夹下的所有文件。
     
-    ```javascript
+    
     const mock = {}
     require('fs').readdirSync(require('path').join(__dirname + '/mock')).forEach(function(file) {
       Object.assign(mock, require('./mock/' + file))
     })
     module.exports = mock
-    ```
+    
     
 - public
   
