@@ -54,6 +54,26 @@
 
   model存放目录，dva整合了redux，所以这里基本上就是redux的目录，具体语法规则参考<https://github.com/dvajs/dva/blob/master/docs/Concepts_zh-CN.md>
 
+  - src/router/router.js
+
+    路由配置文件，这里采用了动态加载的方式配置路由，如果不需要动态加载，可以按照以下示例来配置：
+
+    ```javascript
+      function RouterConfig({ history }) {
+        return (
+          <Router history={history}>
+            <Route path="/index" component={IndexPage} />
+            <Route path="/detail" component={VideoDetail} />
+            <Route path="/video" component={VideoPage} />
+            <Route path="/videoScale" component={VideoPageScale}/>
+            <Route path="/" component={Home} />
+          </Router>
+        );
+      }
+
+      export default RouterConfig;
+    ```
+    
 - src/routes
 
   路由组件存放的目录，一般情况下，我们认为一个页面，就算一个路由组件，每个路由组件是由若干个UI组件组成的，命名规则与UI组件一致。
@@ -73,26 +93,6 @@
 - src/index.less
 
   全局样式文件，一般情况下，全局样式可以再次定义。
-
-- src/router.js
-
-  路由配置文件，这里采用了动态加载的方式配置路由，如果不需要动态加载，可以按照以下示例来配置：
-
-  ```javascript
-    function RouterConfig({ history }) {
-      return (
-        <Router history={history}>
-          <Route path="/index" component={IndexPage} />
-          <Route path="/detail" component={VideoDetail} />
-          <Route path="/video" component={VideoPage} />
-          <Route path="/videoScale" component={VideoPageScale}/>
-          <Route path="/" component={Home} />
-        </Router>
-      );
-    }
-
-    export default RouterConfig;
-  ```
 
 - .editorconfig
 

@@ -24,7 +24,7 @@ app.use(createLoading());
 app.model(require('./models/app'));
 
 // 4. Router
-app.router(require('./router'));
+app.router(require('./router/router'));
 
 // 5. Start
 const App = app.start();

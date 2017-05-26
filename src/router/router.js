@@ -16,7 +16,7 @@ function RouterConfig({ history, app }) {
       name: 'Home',
       getComponent(nextState, cb) {
         require.ensure([], (require) => {
-          cb(null, require('./routes/Home/Home'));
+          cb(null, require('../routes/Home/Home'));
         });
       },
       childRoutes: [
@@ -25,7 +25,7 @@ function RouterConfig({ history, app }) {
           name: 'Form',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
-              cb(null, require('./routes/Example/FormExample'));
+              cb(null, require('../routes/Example/FormExample'));
             });
           },
         },
@@ -34,7 +34,7 @@ function RouterConfig({ history, app }) {
           name: 'Table',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
-              cb(null, require('./routes/Example/TableExample'));
+              cb(null, require('../routes/Example/TableExample'));
             });
           },
         },
@@ -45,8 +45,8 @@ function RouterConfig({ history, app }) {
       name: 'Login',
       getComponent(nextState, cb) {
         require.ensure([], (require) => {
-          registerModel(app, require('./models/login'));
-          cb(null, require('./routes/Login/Login'));
+          registerModel(app, require('../models/login'));
+          cb(null, require('../routes/Login/Login'));
         });
       },
     },
