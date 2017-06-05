@@ -10,4 +10,5 @@ window.appLocale = {
   antd: antdEn,
   locale: 'en-US',
   data: appLocaleData,
+  language: 'ENG',
 };

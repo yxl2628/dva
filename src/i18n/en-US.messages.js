@@ -8,6 +8,17 @@ const Login = {
     "common.login.forgotPass": "Forgot Password",
     "common.login.login": "Login"
 };
+const Home = {
+  "common.home.header.userinfo": "UserInfo",
+  "common.home.header.changepasswd": "Change Password",
+  "common.home.header.logout": "Logout",
+};
+const Logout = {
+    "common.home.header.logout.title":"Message Alert",
+    "common.home.header.logout.content":"Confirm To Logout?",
+    "common.home.header.logout.okText":"Confirm",
+    "common.home.header.logout.cancelText":"Cancel"
+};
 const errorResult = {
   "0101": "Invalid smart card number.",
   "0102": "Invalid password.",
@@ -27,5 +38,7 @@ const errorResult = {
 module.exports = Object.assign(
     {},
     Login,
+    Home,
+    Logout,
     errorResult
 );

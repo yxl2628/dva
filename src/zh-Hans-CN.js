@@ -9,4 +9,5 @@ window.appLocale = {
   antd: null,
   locale: 'zh-Hans-CN',
   data: appLocaleData,
+  language: 'CHI',
 };

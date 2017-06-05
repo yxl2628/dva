@@ -1,44 +1,55 @@
 import React from 'react';
-import { Layout, Menu, Icon, Dropdown } from 'antd';
+import PropTypes from 'prop-types';
+import { Layout, Menu, Icon, Dropdown, Modal } from 'antd';
+import {injectIntl, FormattedMessage} from 'react-intl';
+import messages from './messages';
 import styles from './home.less';
 
-function IndexHeader({dispatch}){
-  const dropDownClick= function ({ key }) {
-    if(`${key}`==3){
-      dispatch({
-        type: "login/logout",
-        payload: {logout: true}
+function IndexHeader({dispatch,menus,menuid,selectMenuId,user,intl:{formatMessage}}){
+  const dropDownClick= ({ key }) => {
+    if(`${key}` === 'logout'){
+      Modal.confirm({
+          title: formatMessage(messages.title),
+          content: formatMessage(messages.content),
+          onOk: () => {
+              dispatch({
+                  type: 'home/logout'
+              });
+          }
       });
     }
   };
+  const menuClick = ({ key }) => {
+    dispatch({
+        type: 'home/getChildMenuList',
+        payload: {parentId: key}
+    });
+  }
   const dropdownMenu = (
     <Menu className={styles.dropMenu} onClick={dropDownClick}>
-      <Menu.Item key="1">用户信息</Menu.Item>
-      <Menu.Item key="2">修改密码</Menu.Item>
-      <Menu.Item key="3">注销</Menu.Item>
+      <Menu.Item key="userinfo"><FormattedMessage {...messages.userinfo}/></Menu.Item>
+      <Menu.Item key="changepasswd"><FormattedMessage {...messages.changepasswd}/></Menu.Item>
+      <Menu.Item key="logout"><FormattedMessage {...messages.logout}/></Menu.Item>
     </Menu>
   );
   return (
     <Layout.Header className={styles.header}>
       <div className={styles.logo}>STAROTT</div>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} className={styles.headerMenu}>
-        <Menu.Item key="1">视频管理</Menu.Item>
-        <Menu.Item key="2">应用管理</Menu.Item>
-        <Menu.Item key="3">信息管理</Menu.Item>
-        <Menu.Item key="4">业务管理</Menu.Item>
-        <Menu.Item key="5">门户管理</Menu.Item>
-        <Menu.Item key="6">用户管理</Menu.Item>
-        <Menu.Item key="7">分发管理</Menu.Item>
-        <Menu.Item key="8">汇聚管理</Menu.Item>
-        <Menu.Item key="9">系统管理</Menu.Item>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[selectMenuId]} className={styles.headerMenu}   onClick={menuClick}>
+        {menus.map(item => <Menu.Item key={item.id}>{item.name}</Menu.Item>)}
       </Menu>
       <div className={styles.userInfo}>
-        <Dropdown overlay={dropdownMenu}><div className={styles.dropLink}><Icon type="user"/> admin <Icon type="down"/></div></Dropdown>
+        <Dropdown overlay={dropdownMenu}><div className={styles.dropLink}><Icon type="user"/> { user.username } <Icon type="down"/></div></Dropdown>
       </div>
     </Layout.Header>
   )
 }
 
-IndexHeader.propTypes = {};
+IndexHeader.propTypes = {
+  dispatch: PropTypes.func,
+  menus: PropTypes.array,
+  user:PropTypes.object,
+  menuKey:PropTypes.string
+};
 
-export default IndexHeader;
+export default injectIntl(IndexHeader);

@@ -1,6 +1,3 @@
-/**
- * Created by wyf on 2017/3/3.
- */
 import {defineMessages} from 'react-intl';
 
 const messages = defineMessages({

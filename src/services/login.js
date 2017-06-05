@@ -13,3 +13,11 @@ export async function login (data) {
     },
   })
 }
+
+export async function logout (data) {
+  return request({
+    url: baseURL+userLogin,
+    method: 'GET',
+    params:{},
+  })
+}

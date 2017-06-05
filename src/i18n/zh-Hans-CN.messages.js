@@ -8,6 +8,17 @@ const Login = {
     "common.login.forgotPass": "忘记密码",
     "common.login.login": "登录"
 };
+const Home = {
+  "common.home.header.userinfo": "用户信息",
+  "common.home.header.changepasswd": "修改密码",
+  "common.home.header.logout": "退出",
+};
+const Logout = {
+    "common.home.header.logout.title":"提示",
+    "common.home.header.logout.content":"确定退出登录？",
+    "common.home.header.logout.okText":"确定",
+    "common.home.header.logout.cancelText":"取消"
+};
 const errorResult = {
   "0101":	"无效的智能卡号.",
   "0102":	"无效的密码.",
@@ -27,5 +38,7 @@ const errorResult = {
 module.exports = Object.assign(
     {},
     Login,
+    Home,
+    Logout,
     errorResult
 );

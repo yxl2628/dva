@@ -18,7 +18,7 @@ module.exports = {
     const {username, password} = req.body;
     const user = adminUsers.filter((item) => item.username === username)
     if (user.length > 0 && user[0].password === password) {
-      res.json({code: '0000', message: 'Ok'})
+      res.json({code: '0000', message: 'Ok',user:user[0]})
     } else {
       res.json({code: '0102', errorMessage: ''})
     }

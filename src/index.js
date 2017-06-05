@@ -21,7 +21,7 @@ const app = dva({
 app.use(createLoading());
 
 // 3. Model
-app.model(require('./models/app'));
+app.model(require('./models/home'));
 
 // 4. Router
 app.router(require('./router/router'));
@@ -29,11 +29,13 @@ app.router(require('./router/router'));
 // 5. Start
 const App = app.start();
 
+//set language
+addLocaleData(appLocale.data);
 //il8n
 ReactDOM.render(
     <LocaleProvider locale={appLocale.antd}>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-            <App />
+            <App/>
         </IntlProvider>
     </LocaleProvider>,
     document.getElementById("root")

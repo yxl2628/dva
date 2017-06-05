@@ -12,6 +12,16 @@ function registerModel(app, model) {
 function RouterConfig({ history, app }) {
   const routes = [
     {
+      path: '/login',
+      name: 'Login',
+      getComponent(nextState, cb) {
+        require.ensure([], (require) => {
+          registerModel(app, require('../models/login'));
+          cb(null, require('../routes/Login/Login'));
+        });
+      },
+    },
+    {
       path: '/',
       name: 'Home',
       getComponent(nextState, cb) {
@@ -38,18 +48,18 @@ function RouterConfig({ history, app }) {
             });
           },
         },
+        {
+          path: '/*',
+          name: 'PageNotFound',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('../routes/Error/PageNotFound'));
+            });
+          },
+        }
       ]
     },
-    {
-      path: '/login',
-      name: 'Login',
-      getComponent(nextState, cb) {
-        require.ensure([], (require) => {
-          registerModel(app, require('../models/login'));
-          cb(null, require('../routes/Login/Login'));
-        });
-      },
-    },
+
   ];
 
   return <Router history={history} routes={routes} />;
