@@ -3,7 +3,7 @@ import {defineMessages} from 'react-intl';
 const messages = defineMessages({
     title: {
         id: 'common.login.title',
-        defaultMessage: '欢迎登录STAROTT'
+        defaultMessage: 'STAROTT'
     },
     username: {
         label: {

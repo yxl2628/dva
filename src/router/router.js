@@ -31,23 +31,16 @@ function RouterConfig({ history, app }) {
       },
       childRoutes: [
         {
-          path: '/form',
-          name: 'Form',
+          path: '/UserList',
+          name: 'UserList',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
-              cb(null, require('../routes/Example/FormExample'));
+              registerModel(app, require('../models/userlist'));
+              cb(null, require('../routes/UserList/UserList'));
             });
           },
         },
-        {
-          path: '/table',
-          name: 'Table',
-          getComponent(nextState, cb) {
-            require.ensure([], (require) => {
-              cb(null, require('../routes/Example/TableExample'));
-            });
-          },
-        },
+        //404页面，要保证此项配置在最后面，不然会造成页面错误
         {
           path: '/*',
           name: 'PageNotFound',

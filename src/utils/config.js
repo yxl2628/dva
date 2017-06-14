@@ -6,5 +6,6 @@ module.exports = {
     userLogout: 'user/logout',
     getMenuList:'menu/getMenuList',
     getChildMenuList: 'menu/getChildMenuList',
+    getUserList: 'userlist/getUserList',
   },
 }

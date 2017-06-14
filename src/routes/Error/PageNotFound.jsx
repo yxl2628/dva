@@ -1,4 +1,6 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 import styles from './pagenotfound.less';
 
 function PageNotFound(){
@@ -6,7 +8,7 @@ function PageNotFound(){
     <div className={styles.bg}>
       <section className={styles.info}>
         <h1>404</h1>
-        <p>您要请求的页面不存在</p>
+        <p><FormattedMessage {...messages.PageNotFound}/></p>
       </section>
     </div>
   );
