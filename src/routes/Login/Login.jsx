@@ -39,43 +39,46 @@ function Login({
         </div>
       </div>
       <div className={styles.login_body} >
-        <div className={styles.body_content}>
-          <div className={styles.body_left}>
-            <img src={require('../../assets/bg-left.png')} />
-          </div>
-          <div className={styles.body_form}>
-            <Form layout='horizontal' className={styles.form}>
-              <FormItem>
-                {getFieldDecorator('userName', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage(messages.username.vtype)
-                    }
-                  ]
-                })(<Input type="text" size="large" prefix={<Icon type="user" className={styles.input_icon} />} placeholder={formatMessage(messages.username.label)} className={styles.input} onPressEnter={handleOk}/>)}
-              </FormItem>
-              <FormItem>
-                {getFieldDecorator('password', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage(messages.password.vtype)
-                    }
-                  ]
-                })(<Input type="password" size="large" prefix={<Icon type="lock" className={styles.input_icon} />} autoComplete="off" placeholder={formatMessage(messages.password.label)} className={styles.input} onPressEnter={handleOk}/>)}
-              </FormItem>
-              <FormItem>
-                <Button type="primary" className={styles.login_btn} onClick={handleOk} >
-                  <FormattedMessage {...messages.login}/><Icon type="right" className={styles.button_icon}/>
-                </Button>
-              </FormItem>
-            </Form>
-          </div>
+        <div className={styles.body_form}>
+            <div className={styles.login_title}>
+              <FormattedMessage {...messages.login}/>
+            </div>
+            <div className={styles.login_form}>
+              <Form layout='horizontal'>
+                <FormItem>
+                  {getFieldDecorator('userName', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage(messages.username.vtype)
+                      }
+                    ]
+                  })(<Input type="text" placeholder={formatMessage(messages.username.label)} className={styles.login_input} onPressEnter={handleOk}/>)}
+                </FormItem>
+                <FormItem>
+                  {getFieldDecorator('password', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage(messages.password.vtype)
+                      }
+                    ]
+                  })(<Input type="password" autoComplete="off" placeholder={formatMessage(messages.password.label)} className={styles.login_input} onPressEnter={handleOk}/>)}
+                </FormItem>
+                <FormItem>
+                  <div className={styles.login_btn_div}>
+                    <Button type="primary" className={styles.login_btn} onClick={handleOk}>
+                      <FormattedMessage {...messages.login}/>
+                    </Button>
+                  </div>
+                </FormItem>
+              </Form>
+            </div>
         </div>
+        <img src={require('../../assets/ott-login.png')} className={styles.login_bg} />
       </div>
       <div className={styles.login_footer} >
-        <div className={styles.footer_title}>北京四达时代科技技术有限公司</div>
+        <div className={styles.footer_title}>北京四达时代软件技术股份有限公司</div>
         <div className={styles.footer_copyright}>CopyRight© 2017 StarTimes All Right Reserved </div>
       </div>
     </div>

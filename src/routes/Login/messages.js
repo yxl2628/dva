@@ -8,7 +8,7 @@ const messages = defineMessages({
     username: {
         label: {
             id: 'common.login.username.label',
-            defaultMessage: '用户名'
+            defaultMessage: '请输入用户名'
         },
         vtype: {
             id: 'common.login.username.vtype',
@@ -18,7 +18,7 @@ const messages = defineMessages({
     password: {
         label: {
             id: 'common.login.password.label',
-            defaultMessage: '密码'
+            defaultMessage: '请输入密码'
         },
         vtype: {
             id: 'common.login.password.vtype',

@@ -1,8 +1,8 @@
 const Login = {
   "common.login.title": "STAROTT",
-  "common.login.username.label": "用户名",
+  "common.login.username.label": "请输入用户名",
   "common.login.username.vtype": "用户名必填！",
-  "common.login.password.label": "密码",
+  "common.login.password.label": "请输入密码",
   "common.login.password.vtype": "密码必填！",
   "common.login.remember": "记住密码",
   "common.login.forgotPass": "忘记密码",
